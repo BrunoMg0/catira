@@ -1,0 +1,105 @@
+{% extends "base.twig" %}
+
+{% block central %}
+
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div id="divFormCad" class="col-lg-7 col-lg-offset-3">
+            <h3 class="text-left ">
+                Meus Dados
+
+
+
+            </h3>
+            <hr>
+            <form class="group" id="formAlterarDados" action="/alterarDados">
+
+                <label for="email">Email  </label>
+                <input class="form-control" type="text" value="{{usuario.email_usuario}}" name="email" maxlength="250" 
+                       placeholder="Digite o email" required="required" disabled="disabled">
+
+                <label for="nome">Nome  </label>
+                <input class="form-control" type="text" value="{{usuario.nome_usuario}}" name="nome" maxlength="250" placeholder="Digite o nome" required="required">
+
+
+                <label for="logradouro">Logradouro  </label>
+                <input class="form-control" type="text" name="logradouro" value="{{usuario.logradouro}}" maxlength="250" placeholder="Digite o nome da rua" required="required">
+
+
+                <label for="numero">Numero  </label>
+                <input class="form-control" type="text" value="{{usuario.numero}}" name="numero" maxlength="250" required="required">
+
+                <label for="cidade">Cidade </label>
+                <input class="form-control" type="text" value="{{usuario.cidade}}" name="cidade" maxlength="250" required="required">
+
+                <label for="estado">Estado </label>
+                <input class="form-control" type="text" value="{{usuario.estado}}" name="estado" maxlength="250" required="required">
+
+                <label for="cep">Cep </label>
+                <input class="form-control" type="text" value="{{usuario.cep}}" name="cep" maxlength="250" required="required">
+
+                <label for="telefone">Telefone </label>
+                <input class="form-control" type="text" value="{{usuario.telefone}}" name="telefone" maxlength="250" required="required">
+
+
+
+                <br>
+                <a id="altSenha" href="#"> Alterar senha </a>
+
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3 class="text-center">Alterar senha</h3>
+                        
+                        <label for="senha">Senha  </label>
+                        <input class="form-control" id="senha" type="password" value="" name="senha" maxlength="250"  >
+
+                        <label for="csenha">Confirmar Senha  </label>
+                        <input class="form-control" id="csenha" type="password" name="csenha" maxlength="250" >
+                        <br>
+                        <div>
+                            <button id="btn_altSenha" class ="btn btn-lg btn-sucess" type="button">
+                            Alterar Senha
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group text-right">
+                    <button id="btn_Cadastrar" class ="btn btn-lg btn-sucess glyphicon glyphicon-pencil" type="submit">
+                        Alterar
+                    </button>
+                </div>
+
+
+
+
+                <div class="form-group" id="div_retorno">   
+
+                </div>
+
+
+
+            </form>
+
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+
+</div>
+
+
+{% endblock %}

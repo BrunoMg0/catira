@@ -1,0 +1,20 @@
+<div class="row lg-margin"> 
+</div>
+<div class="row lg-margin">
+{% for produto in produtos %}
+    <div class="col-lg-3 produtos" style="position: relative">
+                    <a href="/produto/{{produto.id_prod}}">
+                        <div id="box">
+                            <img src="../{{produto.caminho_img}}" alt="" class="img-responsive" id="img-pginicial" style='padding: 16px; border-radius:10px' >
+                            <figcaption>{{ produto.nome_prod|slice(0, 22) }} </figcaption>
+                            <p style="font-size: 14px">Troca por: {{produto.desejo_troca|slice(0,22)}}</p>
+                        </div>
+                    </a>
+    </div>
+{% endfor %}
+</div>
+
+
+
+
+

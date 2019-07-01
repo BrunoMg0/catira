@@ -1,0 +1,115 @@
+{% extends "base.twig" %}
+
+{% block central %}
+<div class="container-principal">
+
+    <div class="jumbotron jumbotron-sm" style="margin-top: -20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <h1 class="h1">
+                        Editar </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <form class="form-group" id="formEditProd">
+                <div class="col-md-8">
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <label for="nomeProd">
+                                Nome do produto</label>
+                            <input type="text" class="form-control" id="nomeProd" name="nomeProd" placeholder="Insira o nome do produto" required="required"
+                                   value="{{produto.nome_prod}}" />
+                            <br>
+                            <label for="troca">
+                                Troca por</label>
+                            <input type="text" class="form-control" name="troca" placeholder="Troca por" required="required" 
+                                   value="{{produto.desejo_troca}}" />
+
+                            <br>
+                            <label for="categoria">
+                                Categoria</label>
+                            <select id="subject" name="categoria" class="form-control" required="required" selected="{{produto.categoria_prod}}">
+                                
+                                {% for categoria in categorias %}
+                                <option value="{{categoria.id_cat}}">{{categoria.nome_cat}}</option>
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="descricao">
+                                    Descrição</label>
+                                <textarea name="descricao" id="message" class="form-control" rows="9" cols="25" required="required" 
+                                           placeholder="Descrição">{{produto.descricao_prod}}</textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+
+                        <div class="col-md-8 img_cad" style="height: 220px; border: 1px solid">
+                            <div id="retornoimg">
+                                {% set nomeimg = nomeimg|split('/', 2)[1] %}
+                               
+                                {% include 'imgEdit.html' %}
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div id="formImg">
+                                <label for="img"> Imagem  </label>
+                                <input type="file" name="img" id="img"/>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+               
+             <div class="col-md-12">
+                   <button class="alert btnExcluirProd pull-right" value="{{produto.id_prod}}" type="button" 
+                        style="background-color: red; color: white; width: 100px;">Excluir</button>
+                        
+                 <button type="submit" class="alert pull-right " idProd="{{produto.id_prod}}" 
+                         id="btnSalvarAlt" style="width: 190px; margin-right: 20px; background-color: green; color: white">
+                        Salvar alterações
+                    </button>
+              
+             
+             </div>
+                
+                
+                
+                  <div id="retornoExcl" class="row col-lg-10" style="position:absolute">
+                                
+                                
+                            </div>
+
+      
+            </form>
+                           
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

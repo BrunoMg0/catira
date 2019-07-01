@@ -1,0 +1,84 @@
+{% extends "base.twig" %}
+
+{% block central %}
+<div class="container-fluid col-lg-offset-1" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-lg-3 ">
+            <img src="../{{produto.caminho_img}}" alt="" class="img-responsive" style="padding: 18px;"  >
+
+        </div>
+        <div class="col-lg-4 col-lg-offset-1 " style="padding: 20px;
+             border-radius: 6px;">
+            <p style="font-size: 25px">{{produto.nome_prod}} </p>
+            <p style="font-size: 16px">Troca por: {{produto.desejo_troca}} </p>
+            <br>
+            <h4>Email do vendedor: <a>{{produto.vendedor}}</a></h4>
+            
+            <br>
+            <button class="btn btn-lg btn-sucess btn_Anuncio" id="btn_Negociar" style="margin-left: -5px">Negociar</button>
+            
+
+        </div>
+          <div class="row col-lg-4 col-lg-offset-1" id="vendedor" style="display: none; padding: 20px">
+                <textarea id="textAreaProd" emailVend="{{produto.vendedor}}" style="padding-bottom: 100px; width: 80%"></textarea>
+                <div class="row">
+                    <button id="btn_envEmail" class="btn btn-sucess btn_Anuncio">Enviar email</button>
+                    <div id="retorno_email" style="color: red"></div>
+                </div>
+                
+                
+                
+            </div>
+        
+    </div>
+  
+
+    <div class="row" style="margin-top: 80px;">
+        <div class="col-lg-9  " id="divDescricao">
+            <p class="text-left" style="font-size: 20px; padding-top: 10px">Descrição:</p><br>
+
+            <div style="color: gray; font-size: 18px;">
+                {{produto.descricao_prod}}
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px; margin-bottom: 80px;">
+        <div class="col-lg-9" id="divDescricao">
+            <p class="text-left" style="font-size: 20px;  padding-top: 10px">Perguntas: </p>
+
+            <form class="form-pergunta">
+                <div class="row">
+                    <textarea name="pergunta" id="pergunta" class="col-lg-8 col-xs-11" required="required"
+                              placeholder="Pergunta" style="margin: 20px"></textarea>
+                </div>
+
+                <div class="row">
+                    <button id="btnPerguntar" class ="btn btn-lg btn-sucess btn_Anuncio" type="submit" >
+                        Perguntar
+                    </button>
+                </div>
+            
+                <div id="retorno">
+                    {% include 'perguntas.html' %}
+                </div>
+            
+
+            </form>
+        </div>
+
+        <div class="row col-lg-10 text-center">
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock %}

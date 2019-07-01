@@ -1,0 +1,77 @@
+{% extends "base.twig" %}
+
+{% block central %}
+<div class="container-fluid col-lg-offset-1 container-principal" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-lg-10 sombra" style="padding: 30px">
+            <div class="row">
+                <h2>Meus Anúncios: </h2>
+                <hr style="height:1px; background-color:black; margin-top: 0px; margin-bottom: 40px;"/>
+            </div>
+
+            {% set i=0 %}
+            {% for produto in produtos %}
+                {% set estilo='background-color: lightcyan; border-radius: 5px; padding-top: 10px' %}
+                {% if i is divisible by(2) %}
+                
+                {% set estilo='background-color: lightblue; border-radius: 5px; padding-top: 10px' %}
+                {% endif %}
+                {% set i=i+1 %}
+
+                <div class="row" style="{{estilo}}">
+                            <div class="col-lg-2">
+                                <h4 style="color: ">{{produto.nome_prod|slice(0,16)}}</h4>
+                                <img src="../{{produto.caminho_img}}" alt="" class="img-responsive" style="padding: 18px; height: 150px; width: 150px ">
+                                
+                            </div>
+
+                            <div class="col-lg-2 text-left" id="{{produto.id_prod}}">
+                                <p>Produto: {{produto.id_prod}}</p>
+                            </div>
+
+                            <div class="col-lg-2 text-left">
+                                <h4>Troca por: {{produto.desejo_troca|slice(0,50)}}</h3>
+                            </div>
+
+
+
+                            <div class="col-lg-2 text-right">
+                                <h5>Anunciado em: </h5>
+                                <h5>{{produto.data|date("d/m/Y H:i:s") }}</h5>
+                            </div>'
+                            <div class="col-lg-2 col-lg-offset-1">
+                                <button class="alert btnEditProd glyphicon glyphicon-pencil" value="{{produto.id_prod}}" 
+                                        onclick="window.location='/telaEditarProduto/{{produto.id_prod}}'"
+                                        style="width: 100px; background-color: green ; color: white"
+                                        > Editar</button>
+
+                            </div>
+                            
+                          
+                           
+
+                        </div>
+
+
+
+            {% endfor %}
+
+
+        </div>
+        
+        
+    </div>
+    
+        
+</div>
+
+
+
+
+
+
+
+
+
+
+            {% endblock %}

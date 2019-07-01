@@ -1,0 +1,67 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class ="navbar-header">
+            <a href="/" class="navbar-brand">
+                <img src="/imgs/flowRoot3724.png" alt="" style="height: 50px; margin-top: -10px"/>
+            </a>
+
+            <button id="nbToogle" class="navbar-toggle glyphicon glyphicon-menu-hamburger" 
+                    type="button" onclick="mostrarMenuHamburg()"></button>
+        </div>
+
+
+
+        <ul id="listaNavBar" class="nav navbar-nav navbar-right collapse navbar-collapse">
+            <li>
+
+              
+                    <input type="text" id="inputSearch" name="inputSearch" class="search" placeholder="Faça uma busca" 
+                           style="width: 300px; height: 36px;border-radius: 20px; padding-left: 20px;margin-top: 5px">
+                    <button type="button" id="btnSearch" 
+                            onclick="pesquisarProduto()" class="glyphicon glyphicon-search" 
+                            style="width: 40px;height: 36px; border-radius: 10px; margin-top: 5px; background-color: white">
+                    </button>
+
+
+
+            </li>
+          
+            <li><a  href="/">HOME</a></li>
+
+            <li class="dropdown categorias">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORIAS
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    {% for categoria in categorias %}
+                    <li><a href="/produtosPorCategoria/{{categoria.id_cat}}" style="font-size: 16px;">{{categoria.nome_cat}}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+
+            {% if nome == 'FAZER LOGIN'%}
+            <li><a href="/login">FAZER LOGIN</a></li>
+            {% elseif nome != '' %}
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{nome}}
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/meusAnuncios">MEUS ANÚNCIOS</a></li>
+                    <li><a href="/meusDados">MEUS DADOS</a></li>
+                    <li><a href="/cadProd">ANUNCIAR</a></li>
+                    <li><a href="/logout">SAIR</a></li>
+
+                </ul>
+            </li>
+            {% else%}
+            <li><a href="/login">FAZER LOGIN</a></li>
+            {% endif %}
+            
+            <li><a href="/contato">CONTATO</a></li>
+
+
+
+
+        </ul>
+
+    </div>
+</nav> 

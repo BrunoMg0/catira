@@ -1,0 +1,58 @@
+{% extends "base.twig" %}
+
+{% block central %}
+   
+<div class="container container-principal">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div id="divForm" class="col-lg-4 col-lg-offset-4">
+            <h3 class="text-center">
+                Login
+                <br>
+                <br>
+
+            </h3>
+
+
+            <form class="groupLogin" id="formLogin" action="/logar">
+                
+                <label for="email">Email  </label>
+                
+                <input class="form-control" type="email" name="email" maxlength="250" placeholder="Digite o email">
+
+                <label for="senha">Senha  </label>
+                
+                <input class="form-control" type="password" name="senha" maxlength="250" placeholder="Digite a senha">
+             
+
+                <div class="form-group text-right">
+                    <button id="btn_Login" class ="btn btn-lg btn-sucess" type="submit">
+                        Login
+                    </button>
+                </div>
+                
+                <div class="form-group text-left">
+                    <a id="cadastrar" href="/cadastro" type="submit" style="color: yellow; font-size: 18px;">
+                        Cadastre-se
+                    </a>
+                </div>
+      
+               
+                <div class="col-md-offset-2 col-md-8 text-center" style="color: red; font-size: 16px; font-weight: 900" id="erroLogin"> 
+                
+                </div>
+             
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

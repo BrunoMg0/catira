@@ -1,0 +1,14 @@
+{
+    "name": "bruno/catira",
+    "require": {
+    "php": ">=7.0.0",
+        "symfony/http-foundation": "^3.4",
+        "symfony/routing": "^3.4",
+        "twig/twig": "^2.0"
+    }, 
+    "autoload": {
+    "psr-4" : {
+            "catira\\" : "src/"
+        }
+    }
+}

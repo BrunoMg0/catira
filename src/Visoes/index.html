@@ -1,0 +1,41 @@
+{% extends "base.twig" %}
+
+{% block central %}
+{% set qtdProdutosPorPagina = 16 %}
+{% set i = 1 %}
+{% set totalPaginas = qtdprodutos/qtdProdutosPorPagina %}
+{% set totalPaginas = totalPaginas|round(0, 'ceil') %}
+{% set ultpg = 0 %}
+
+<div class="container-fluid container-principal">
+       
+   
+    <div id="retorno" class="col-lg-10">
+     
+        
+        {% include 'produtos2.twig' %}
+    </div>
+
+
+    <div class="col-lg-10">
+        {% if totalPaginas > 1%}  
+        <nav aria-label="Page navigation example" style="text-align: center">
+            <ul class="pagination">
+                <li class="page-item" id='npage' value="anterior" prodPorPagCat="{{prodPorPagCat}}"><a class="page-link" href='#' >Anterior</a></li>
+                {% for i in range(i,totalPaginas) %}
+
+                <li class="page-item" id='npage' value="{{i}}" prodPorPagCat="{{prodPorPagCat}}" ><a class="page-link" href='#' >{{i}}</a></li>
+                {% set ultpg = i %}
+                {% endfor %}
+                <li class="page-item" id='npage' value="prox" ultpg="{{ultpg}}" prodPorPagCat="{{prodPorPagCat}}"><a class="page-link" href='#' >Próxima</a></li>
+
+            </ul>
+        </nav>
+        {% endif %}
+    </div>    
+</div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,11 @@
+{% if perguntas|length < 1%}
+<h3 style="margin: 30px;">Nenhuma pergunta ainda</h3>
+{% endif %}
+
+{% for pergunta in perguntas%}
+
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-1" style="border: 1px solid lightgray; padding: 30px;margin: 15px; border-radius: 5px">{{pergunta.mensagem}}</div>
+</div>
+<div class="col-lg-8 text-right" style="margin-bottom: 5px"><h4>{{pergunta.nome_usuario}}</h4></div>
+{% endfor %}

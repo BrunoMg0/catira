@@ -1,0 +1,49 @@
+{% extends "base.twig" %}
+
+{% block central %}
+
+
+    <div class="container" style="margin-top: 100px; ">
+            <div class="row">
+                <div id="divcontato" class="col-lg-7 col-lg-offset-3">
+                    <h3 class="text-center">
+                        Deixe uma mensagem
+                        <br>
+                        <br>
+
+                    </h3>
+
+                   
+
+
+                    <form class="group" method="POST">
+                        <label for="Nome">Nome  </label>
+                        <input class="form-control" type="text" name="nome" maxlength="250" placeholder="Digite o nome">
+
+                        <label for="email">Email  </label>
+                        <input class="form-control" type="email" name="email" maxlength="250" placeholder="Digite o e-mail">
+
+                        <label for="fone">Telefone  </label>
+                        <input class="form-control" type="number" name="fone" maxlength="20" placeholder="Digite o telefone">
+                        <br>
+
+                        <label for="msg">Mensagem  </label>
+                        <textarea id="msgcontato" class="form-control" name="msg" maxlength="2000" rows="10" placeholder="Deixe aqui a sua mensagem"></textarea>
+
+
+                        <br>
+                        <div class="form-group text-right">
+                            <button id="btn_contato" class ="btn btn-lg btn-danger" type="submit">
+                                Enviar
+                            </button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+            </div>
+        </div>
+        <br>
+{% endblock %}
